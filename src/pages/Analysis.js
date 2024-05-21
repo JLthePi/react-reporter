@@ -1,4 +1,4 @@
-// ./components/Analysis.js
+// ./pages/Analysis.js
 
 import React from 'react'
 

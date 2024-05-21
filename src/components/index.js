@@ -1,6 +1,5 @@
 // ./components/index.js
 
-import Home from './Home'
-import Analysis from './Analysis'
+import Tab from './Tab'
 
-export { Home, Analysis }
+export { Tab }

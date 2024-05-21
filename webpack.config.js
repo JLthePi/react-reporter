@@ -3,22 +3,20 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
 
-const cleanWebpackPlugin = new CleanWebpackPlugin()
+// const cleanWebpackPlugin = new CleanWebpackPlugin()
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
   template: './public/index.html',
   inject: false,
 })
 
-const inlineChunkHtmlPlugin = new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [
-  'bundle.[chunkhash:8].js',
-])
+const inlineChunkHtmlPlugin = new InlineChunkHtmlPlugin(HtmlWebpackPlugin, ['bundle.js'])
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.[chunkhash:8].js',
+    filename: 'bundle.js',
     publicPath: './',
   },
   module: {
@@ -48,7 +46,11 @@ module.exports = {
       },
     ],
   },
-  plugins: [cleanWebpackPlugin, htmlWebpackPlugin, inlineChunkHtmlPlugin],
+  plugins: [
+    // cleanWebpackPlugin,
+    htmlWebpackPlugin,
+    inlineChunkHtmlPlugin,
+  ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
