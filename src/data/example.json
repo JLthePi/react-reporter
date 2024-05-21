@@ -1,51 +1,58 @@
 [
   {
     "id": "0",
-    "geninusId": "HNSCC_1_PBMC",
-    "customerId": "HNSCC_1_PBMC",
-    "group": "HPV-",
-    "sampleType": "HPV-_PBMC"
+    "geninusId": "SS5-066_ctrl",
+    "customerId": "SS5-066_ctrl",
+    "patient": "SS5-066",
+    "case": "ctrl"
   },
   {
     "id": "1",
-    "geninusId": "HNSCC_1_PBMC",
-    "customerId": "HNSCC_1_PBMC",
-    "group": "HPV-",
-    "sampleType": "HPV-_PBMC"
+    "geninusId": "SS5-067_ctrl",
+    "customerId": "SS5-067_ctrl",
+    "patient": "SS5-067",
+    "case": "ctrl"
   },
   {
     "id": "2",
-    "geninusId": "HNSCC_1_PBMC",
-    "customerId": "HNSCC_1_PBMC",
-    "group": "HPV-",
-    "sampleType": "HPV-_PBMC"
+    "geninusId": "SS5-068_ctrl",
+    "customerId": "SS5-068_ctrl",
+    "patient": "SS5-068",
+    "case": "ctrl"
   },
   {
     "id": "3",
-    "geninusId": "HNSCC_1_PBMC",
-    "customerId": "HNSCC_1_PBMC",
-    "group": "HPV-",
-    "sampleType": "HPV-_PBMC"
+    "geninusId": "SS5-069_ctrl",
+    "customerId": "SS5-069_ctrl",
+    "patient": "SS5-069",
+    "case": "ctrl"
   },
   {
     "id": "4",
-    "geninusId": "HNSCC_1_PBMC",
-    "customerId": "HNSCC_1_PBMC",
-    "group": "HPV-",
-    "sampleType": "HPV-_PBMC"
+    "geninusId": "SS5-066_test",
+    "customerId": "SS5-066_test",
+    "patient": "SS5-066",
+    "case": "test"
   },
   {
     "id": "5",
-    "geninusId": "HNSCC_1_PBMC",
-    "customerId": "HNSCC_1_PBMC",
-    "group": "HPV-",
-    "sampleType": "HPV-_PBMC"
+    "geninusId": "SS5-067_test",
+    "customerId": "SS5-067_test",
+    "patient": "SS5-067",
+    "case": "test"
   },
   {
     "id": "6",
-    "geninusId": "HNSCC_1_PBMC",
-    "customerId": "HNSCC_1_PBMC",
-    "group": "HPV-",
-    "sampleType": "HPV-_PBMC"
+    "geninusId": "SS5-068_test",
+    "customerId": "SS5-068_test",
+    "patient": "SS5-068",
+    "case": "test"
+  },
+  {
+    "id": "7",
+    "geninusId": "SS5-069_test",
+    "customerId": "SS5-069_test",
+    "patient": "SS5-069",
+    "case": "test"
   }
 ]

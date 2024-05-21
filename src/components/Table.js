@@ -29,8 +29,8 @@ const Table = () => {
   const COLUMNS = [
     { label: 'Geninus ID', renderCell: item => item.geninusId },
     { label: 'Customer ID', renderCell: item => item.customerId },
-    { label: 'Group', renderCell: item => item.group },
-    { label: 'Sample Type', renderCell: item => item.sampleType },
+    { label: 'Patient', renderCell: item => item.patient },
+    { label: 'Case', renderCell: item => item.case },
   ]
 
   return <CompactTable columns={COLUMNS} data={data} theme={theme} />
