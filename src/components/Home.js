@@ -2,19 +2,17 @@
 
 import React from 'react'
 import styled from 'styled-components'
+import homeImage from '../images/home.jpg'
 
-const HomeContainer = styled.div`
-  font-weight: bold;
-`
+const HomeContainer = styled.div``
 
-const HomeContent = styled.div`
-  margin-top: 20px;
-`
+const HomeContent = styled.div``
 const Home = () => {
   return (
     <HomeContainer>
       <HomeContent>
-        <h1>THIS IS HOME</h1>
+        <h1>IS THIS HOME? REALLY?</h1>
+        <img src={homeImage} alt="home" />
       </HomeContent>
     </HomeContainer>
   )

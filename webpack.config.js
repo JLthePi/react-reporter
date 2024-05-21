@@ -1,6 +1,9 @@
 const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
+
+const cleanWebpackPlugin = new CleanWebpackPlugin()
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
   template: './public/index.html',
@@ -8,14 +11,14 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 })
 
 const inlineChunkHtmlPlugin = new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [
-  'bundle.js',
+  'bundle.[chunkhash:8].js',
 ])
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.[chunkhash:8].js',
     publicPath: './',
   },
   module: {
@@ -31,9 +34,21 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: 'images/[name].[hash:8].[ext]',
+            },
+          },
+        ],
+      },
     ],
   },
-  plugins: [htmlWebpackPlugin, inlineChunkHtmlPlugin],
+  plugins: [cleanWebpackPlugin, htmlWebpackPlugin, inlineChunkHtmlPlugin],
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
