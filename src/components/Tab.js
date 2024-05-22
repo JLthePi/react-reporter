@@ -103,7 +103,7 @@ const Tab = ({ activeTab, handleTabClick }) => {
           </TabItem>
           <SubTabList>
             <SubTabItem onClick={() => handleTabClick(20)}>OVERVIEW</SubTabItem>
-            <SubTabItem onClick={() => handleTabClick(21)}>QUALITY CONTROL</SubTabItem>
+            <SubTabItem onClick={() => handleTabClick(21)}>QUALITY METRICS</SubTabItem>
             <SubTabItem onClick={() => handleTabClick(22)}>CLUSTERING & ANNOTATION</SubTabItem>
             <SubTabItem onClick={() => handleTabClick(23)}>DEG & GSEA</SubTabItem>
           </SubTabList>

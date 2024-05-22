@@ -1,7 +1,7 @@
 // ./App.js
 
 import React, { useState } from 'react'
-import { Home, Analysis, Information, QualityControl, ClusteringAnnotation, DegGsea } from './pages'
+import { Home, Analysis, Information, QualityMetrics, ClusteringAnnotation, DegGsea } from './pages'
 import { Tab } from './components'
 import styled from 'styled-components'
 
@@ -25,7 +25,7 @@ function App() {
         {activeTab === 0 && <Home />}
         {activeTab === 10 && <Information />}
         {activeTab === 20 && <Analysis />}
-        {activeTab === 21 && <QualityControl />}
+        {activeTab === 21 && <QualityMetrics />}
         {activeTab === 22 && <ClusteringAnnotation />}
         {activeTab === 23 && <DegGsea />}
       </Content>

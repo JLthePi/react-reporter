@@ -1,9 +1,10 @@
 // ./pages/Analysis.js
 
 import React from 'react'
+import { Barchart, PieChart } from '../components'
 
 const Analysis = () => {
-  return <div>ANALYSIS TAB</div>
+  return <>THIS IS THE ANALYSIS PAGE</>
 }
 
 export default Analysis
