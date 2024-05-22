@@ -2,8 +2,8 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import { ProjectInfo, SampleInfo, PieChart } from '../components'
-import { pieChart } from '../data/example.json'
+import { PieChart, Table } from '../components'
+import { pieChart, sampleInfo, projectInfo } from '../data/example.json'
 
 const InformationContainer = styled.div`
   display: grid;
@@ -49,13 +49,17 @@ const Information = () => {
       <ProjectContainer>
         <ProjectWrapper>
           <h1>Project Information</h1>
-          <ProjectInfo />
+          <Table tableData={projectInfo} columns={['name', 'value']} colnames={Array(2).fill('')} />
         </ProjectWrapper>
       </ProjectContainer>
       <SampleContainer>
         <SampleWrapper>
           <h1>Sample Information</h1>
-          <SampleInfo />
+          <Table
+            tableData={sampleInfo}
+            columns={['geninusId', 'customerId', 'patient', 'case']}
+            colnames={['Geninus ID', 'Customer ID', 'Patient', 'Case']}
+          />
         </SampleWrapper>
       </SampleContainer>
       <PieChartContainer>

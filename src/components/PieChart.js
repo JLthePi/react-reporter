@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 
-const PieChart = ({ data, chartWidth = 800, chartHeight = 400 }) => {
+const PieChart = ({ data, chartWidth = 400, chartHeight = 400 }) => {
   if (!data)
     return (
       <div>

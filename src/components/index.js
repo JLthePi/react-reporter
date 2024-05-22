@@ -6,4 +6,7 @@ import ProjectInfo from './ProjectInfo'
 import Barchart from './BarChart'
 import PieChart from './PieChart'
 
-export { Tab, SampleInfo, ProjectInfo, Barchart, PieChart }
+import Table from './Table'
+import Foldable from './Foldable'
+
+export { Tab, SampleInfo, ProjectInfo, Barchart, PieChart, Table, Foldable }

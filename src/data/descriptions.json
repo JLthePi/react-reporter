@@ -1,0 +1,45 @@
+{
+  "qualityMetrics": {
+    "qualityCell": [
+      {
+        "metrics": "Estimated number of cells",
+        "definition": "The number of barcodes associated with at least one cell",
+        "expectedValue": "500-1000",
+        "minimumValue": "500",
+        "maximumValue": "1000",
+        "notes": "Higher or lower than expected values may indicate inaccurate cell count, cell lysis, or failures during GEM generation."
+      },
+      {
+        "metrics": "Median reads per cell",
+        "definition": "The total number of sequenced reads divided by the number of barcodes associated with cell-containing partitions",
+        "expectedValue": "User defined; 20,000 reads/cell minimum recommended",
+        "notes": "The necessary sequencing depth per cell depends on the cell type (high or low RNA) and the desired analysis."
+      },
+      {
+        "metrics": "Median UMI counts per cell",
+        "definition": "",
+        "expectedValue": "",
+        "notes": ""
+      },
+      {
+        "metrics": "Total genes detected",
+        "definition": "",
+        "expectedValue": "",
+        "notes": ""
+      },
+      {
+        "metrics": "Median genes per cell",
+        "definition": "",
+        "expectedValue": "",
+        "notes": ""
+      },
+      {
+        "metrics": "Fraction reads in cells",
+        "definition": "",
+        "expectedValue": ">70%",
+        "minimumValue": "70",
+        "notes": ""
+      }
+    ]
+  }
+}

@@ -1,13 +1,12 @@
-// ./components/ProjectInfo.js
+// ./components/Table.js
 
 import React from 'react'
 import { CompactTable } from '@table-library/react-table-library/compact'
 import { useTheme } from '@table-library/react-table-library/theme'
 import { getTheme } from '@table-library/react-table-library/baseline'
-import { projectInfo } from '../data/example.json'
 
-const ProjectInfo = () => {
-  const data = { nodes: projectInfo }
+const Table = ({ tableData, columns, colnames }) => {
+  const data = { nodes: tableData }
 
   const theme = useTheme(getTheme(), {
     HeaderRow: `
@@ -26,9 +25,11 @@ const ProjectInfo = () => {
 
   if (!data.nodes) return <div>THERE IS NO DATA</div>
 
-  const COLUMNS = [{ renderCell: item => item.name }, { renderCell: item => item.value }]
+  const COLUMNS = columns.map((col, i) => {
+    return { label: colnames[i], renderCell: item => item[col] }
+  })
 
   return <CompactTable columns={COLUMNS} data={data} theme={theme} />
 }
 
-export default ProjectInfo
+export default Table
