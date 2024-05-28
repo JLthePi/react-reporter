@@ -1,11 +1,20 @@
 // ./pages/index.js
 
 import Home from './Home'
-import Analysis from './Analysis'
 import Information from './Information'
+import { QualityCells, QualityMapping, QualitySequencing } from './QualityMetrics'
+import { Annotation, Clustering, Deg, Gsea } from './Analysis'
+import Workflow from './Workflow'
 
-import QualityMetrics from './QualityMetrics'
-import ClusteringAnnotation from './ClusteringAnnotation'
-import DegGsea from './DegGsea'
-
-export { Home, Analysis, Information, QualityMetrics, ClusteringAnnotation, DegGsea }
+export {
+  Home,
+  Annotation,
+  Clustering,
+  Deg,
+  Gsea,
+  Information,
+  QualityCells,
+  QualityMapping,
+  QualitySequencing,
+  Workflow,
+}

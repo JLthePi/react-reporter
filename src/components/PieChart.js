@@ -82,6 +82,8 @@ const PieChart = ({ data, chartWidth = 400, chartHeight = 400 }) => {
           .attr('y', '0.7em')
           .text(d => d.data.value),
       )
+      .append('title')
+      .text(d => `${d.data.name}: ${d.data.value.toLocaleString('en-US')}`)
   }, [chartWidth, chartHeight])
 
   return <svg width={chartWidth} height={chartHeight} ref={ref} />

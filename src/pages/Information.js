@@ -3,7 +3,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { PieChart, Table } from '../components'
-import { pieChart, sampleInfo, projectInfo } from '../data/example.json'
+import { pieChart, sampleInfo, projectInfo } from '../meta/example.json'
 
 const InformationContainer = styled.div`
   display: grid;

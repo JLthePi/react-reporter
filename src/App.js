@@ -1,7 +1,7 @@
 // ./App.js
 
 import React, { useState } from 'react'
-import { Home, Analysis, Information, QualityMetrics, ClusteringAnnotation, DegGsea } from './pages'
+import * as Pages from './pages'
 import { Tab } from './components'
 import styled from 'styled-components'
 
@@ -12,7 +12,7 @@ const Content = styled.div`
 `
 
 function App() {
-  const [activeTab, setActiveTab] = useState(0)
+  const [activeTab, setActiveTab] = useState('Home')
 
   const handleTabClick = index => {
     setActiveTab(index)
@@ -22,12 +22,16 @@ function App() {
     <AppContainer>
       <Tab activeTab={activeTab} handleTabClick={handleTabClick} />
       <Content>
-        {activeTab === 0 && <Home />}
-        {activeTab === 10 && <Information />}
-        {activeTab === 20 && <Analysis />}
-        {activeTab === 21 && <QualityMetrics />}
-        {activeTab === 22 && <ClusteringAnnotation />}
-        {activeTab === 23 && <DegGsea />}
+        {activeTab == 'Home' && <Pages.Home />}
+        {activeTab == 'Information' && <Pages.Information />}
+        {activeTab == 'QualityCells' && <Pages.QualityCells />}
+        {activeTab == 'QualitySequencing' && <Pages.QualitySequencing />}
+        {activeTab == 'QualityMapping' && <Pages.QualityMapping />}
+        {activeTab == 'Annotation' && <Pages.Annotation />}
+        {activeTab == 'Clustering' && <Pages.Clustering />}
+        {activeTab == 'Deg' && <Pages.Deg />}
+        {activeTab == 'Gsea' && <Pages.Gsea />}
+        {activeTab == 'Workflow' && <Pages.Workflow />}
       </Content>
     </AppContainer>
   )

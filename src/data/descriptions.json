@@ -4,9 +4,7 @@
       {
         "metrics": "Estimated number of cells",
         "definition": "The number of barcodes associated with at least one cell",
-        "expectedValue": "500-1000",
-        "minimumValue": "500",
-        "maximumValue": "1000",
+        "expectedValue": "500-10000",
         "notes": "Higher or lower than expected values may indicate inaccurate cell count, cell lysis, or failures during GEM generation."
       },
       {
@@ -37,7 +35,6 @@
         "metrics": "Fraction reads in cells",
         "definition": "",
         "expectedValue": ">70%",
-        "minimumValue": "70",
         "notes": ""
       }
     ]

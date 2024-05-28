@@ -49,7 +49,7 @@ const TabWrapper = styled.div`
 `
 
 const TabPadding = styled.div`
-  height: 50px;
+  height: 36px;
 `
 
 const SubTabList = styled.ul`
@@ -91,24 +91,40 @@ const Tab = ({ activeTab, handleTabClick }) => {
     <>
       <TabContainer $isHidden={isHidden}>
         <LogoContainer>GENINUS</LogoContainer>
-        <TabItem $isActive={activeTab === 0} onClick={() => handleTabClick(0)}>
+        <TabItem $isActive={activeTab == 'Home'} onClick={() => handleTabClick('Home')}>
           HOME
         </TabItem>
-        <TabItem $isActive={activeTab === 10} onClick={() => handleTabClick(10)}>
+        <TabItem $isActive={activeTab == 'Information'} onClick={() => handleTabClick('Information')}>
           INFORMATION
         </TabItem>
         <TabWrapper>
-          <TabItem $isActive={(activeTab >= 20) & (activeTab < 30)} onClick={() => handleTabClick(20)}>
+          <TabItem
+            $isActive={['QualityCells', 'QualitySequencing', 'QualityMapping'].includes(activeTab)}
+            onClick={() => handleTabClick('QualityCells')}
+          >
+            QUALITY METRICS
+          </TabItem>
+          <SubTabList>
+            <SubTabItem onClick={() => handleTabClick('QualityCells')}>QUALITY OF CELLS</SubTabItem>
+            <SubTabItem onClick={() => handleTabClick('QualitySequencing')}>QUALITY OF SEQUENCING</SubTabItem>
+            <SubTabItem onClick={() => handleTabClick('QualityMapping')}>QUALITY OF MAPPING</SubTabItem>
+          </SubTabList>
+        </TabWrapper>
+        <TabWrapper>
+          <TabItem
+            $isActive={['Clustering', 'Annotation', 'Deg', 'Gsea'].includes(activeTab)}
+            onClick={() => handleTabClick('Clustering')}
+          >
             ANALYSIS
           </TabItem>
           <SubTabList>
-            <SubTabItem onClick={() => handleTabClick(20)}>OVERVIEW</SubTabItem>
-            <SubTabItem onClick={() => handleTabClick(21)}>QUALITY METRICS</SubTabItem>
-            <SubTabItem onClick={() => handleTabClick(22)}>CLUSTERING & ANNOTATION</SubTabItem>
-            <SubTabItem onClick={() => handleTabClick(23)}>DEG & GSEA</SubTabItem>
+            <SubTabItem onClick={() => handleTabClick('Clustering')}>CLUSTERING</SubTabItem>
+            <SubTabItem onClick={() => handleTabClick('Annotation')}>ANNOTATION</SubTabItem>
+            <SubTabItem onClick={() => handleTabClick('Deg')}>DEG</SubTabItem>
+            <SubTabItem onClick={() => handleTabClick('Gsea')}>GSEA</SubTabItem>
           </SubTabList>
         </TabWrapper>
-        <TabItem $isActive={activeTab === 30} onClick={() => handleTabClick(30)}>
+        <TabItem $isActive={activeTab == 'Workflow'} onClick={() => handleTabClick('Workflow')}>
           WORKFLOW
         </TabItem>
       </TabContainer>

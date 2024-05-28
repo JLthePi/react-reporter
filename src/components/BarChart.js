@@ -1,17 +1,37 @@
 import React, { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 
-const Barchart = ({
-  chartWidth = 800,
+const BarChart = ({
+  data,
+  chartWidth = 400,
   chartHeight = 400,
-  chartMargin = { top: 30, right: 30, bottom: 70, left: 60 },
+  margins = { top: 50, right: 50, bottom: 50, left: 100 },
+  xaxis,
+  yaxis,
+  thresholdMax = Infinity,
+  thresholdMin = 0,
 }) => {
   const ref = useRef()
 
   useEffect(() => {
-    const margin = chartMargin
+    if (!data || data.length === 0) return
+    d3.select(ref.current).select('svg').remove()
+
+    const margin = { top: 50, right: 50, bottom: 50, left: 100 }
     const width = chartWidth - margin.left - margin.right
     const height = chartHeight - margin.top - margin.bottom
+
+    const y = d3
+      .scaleBand()
+      .range([0, height])
+      .domain(data.map(d => d[yaxis]))
+      .padding(0.2)
+
+    const x = d3
+      .scaleLinear()
+      .domain([0, d3.max(data, d => +d[xaxis])])
+      .range([0, width])
+      .nice()
 
     const svg = d3
       .select(ref.current)
@@ -19,44 +39,95 @@ const Barchart = ({
       .attr('width', chartWidth)
       .attr('height', chartHeight)
       .append('g')
-      .attr('transform', `translate(${margin.left},${margin.top})`)
+      .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
-    d3.csv('https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/7_OneCatOneNum_header.csv')
-      .then(function (data) {
-        const x = d3
-          .scaleBand()
-          .range([0, width])
-          .domain(data.map(d => d.Country))
-          .padding(0.2)
-        svg
-          .append('g')
-          .attr('transform', `translate(0, ${height})`)
-          .call(d3.axisBottom(x))
-          .selectAll('text')
-          .attr('transform', 'translate(-10,0)rotate(-45)')
-          .style('text-anchor', 'end')
+    svg // bars
+      .append('g')
+      .attr('fill', 'steelblue')
+      .selectAll('mybar')
+      .data(data)
+      .join('rect')
+      .attr('x', x(0))
+      .attr('y', d => y(d[yaxis]))
+      .attr('height', y.bandwidth())
+      .attr('width', d => 0)
+      .call(rects =>
+        rects
+          .filter(d => +d[xaxis] < thresholdMin) // below threshold
+          .attr('fill', 'red'),
+      )
+      .call(rects =>
+        rects
+          .filter(d => +d[xaxis] > thresholdMax) // above threshold
+          .attr('fill', 'red'),
+      )
+      .append('title')
+      .text(d => `${d[yaxis]}: ${d[xaxis]}`)
 
-        const y = d3
-          .scaleLinear()
-          .domain([0, d3.max(data, d => +d.Value)])
-          .nice()
-          .range([height, 0])
-        svg.append('g').call(d3.axisLeft(y))
+    svg // labels
+      .append('g')
+      .attr('fill', 'white')
+      .attr('text-anchor', 'end')
+      .selectAll()
+      .data(data)
+      .join('text')
+      .attr('font-size', '0.66em')
+      .attr('x', d => 0)
+      .attr('y', d => y(d[yaxis]) + y.bandwidth() / 2)
+      .attr('dx', -4)
+      .attr('dy', '0.33em')
+      .attr('opacity', 0)
+      .text(d => d[xaxis])
+      .call(text =>
+        text
+          .filter(d => x(d[xaxis]) - x(0) < 30) // short bars
+          .attr('dx', +4)
+          .attr('fill', 'black')
+          .attr('text-anchor', 'start'),
+      )
+      .append('title')
+      .text(d => `${d[yaxis]}: ${d[xaxis]}`)
 
-        svg
-          .selectAll('mybar')
-          .data(data)
-          .join('rect')
-          .attr('x', d => x(d.Country))
-          .attr('y', d => y(+d.Value))
-          .attr('width', x.bandwidth())
-          .attr('height', d => height - y(+d.Value))
-          .attr('fill', '#5f0f40')
-      })
-      .catch(error => console.error('Error fetching data:', error))
-  }, [chartWidth, chartHeight, chartMargin])
+    svg // bars animation
+      .selectAll('rect')
+      .transition()
+      .duration(800)
+      .attr('width', d => x(+d[xaxis]))
+      .delay((d, i) => i * 25)
+
+    svg // labels animation
+      .selectAll('text')
+      .transition()
+      .duration(800)
+      .attr('x', d => x(+d[xaxis]))
+      .attr('opacity', 1)
+      .delay((d, i) => i * 25)
+
+    svg // xaxis
+      .append('g')
+      .attr('transform', `translate(0, ${chartHeight - margin.top - margin.bottom})`)
+      .call(d3.axisBottom(x))
+      .selectAll('text')
+      .attr('transform', 'translate(-10,0)rotate(-45)')
+      .style('text-anchor', 'end')
+
+    svg // yaxis
+      .append('g')
+      .attr('transform', `translate(0, 0)`)
+      .call(d3.axisLeft(y))
+      .append('text')
+      .text(yaxis)
+      .attr('transform', 'rotate(-90)')
+  }, [chartWidth, chartHeight, xaxis])
+
+  if (!data)
+    return (
+      <div>
+        <h1>NO DATA</h1>
+      </div>
+    )
 
   return <svg width={chartWidth} height={chartHeight} ref={ref} />
 }
 
-export default Barchart
+export default BarChart

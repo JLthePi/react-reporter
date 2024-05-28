@@ -4,9 +4,7 @@ import React from 'react'
 import styled from 'styled-components'
 import homeImage from '../images/home.jpg'
 
-const HomeContainer = styled.div`
-  height: 200vh;
-`
+const HomeContainer = styled.div``
 
 const HomeContent = styled.div``
 const Home = () => {

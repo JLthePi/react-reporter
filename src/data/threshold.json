@@ -1,0 +1,22 @@
+{
+  "threshold": {
+    "estimatedNumberOfCells": {
+      "min": 500
+    },
+    "fractionReadsInCells": {
+      "min": 70
+    },
+    "validBarcodes": {
+      "min": 75
+    },
+    "Q30BasesInRnaRead": {
+      "min": 65
+    },
+    "ReadsMappedConfidentlyToTranscriptome": {
+      "min": 30
+    },
+    "ReadsMappedAntisenseToGene": {
+      "max": 10
+    }
+  }
+}
