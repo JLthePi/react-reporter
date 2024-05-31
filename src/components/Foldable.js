@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const FoldableContainer = styled.div`
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 10px;
+  border: 1px solid #a0a8ae;
+  border-radius: 10px;
+  overflow: hidden;
 `
 
 const Header = styled.div`
   background-color: #f5f5f5;
-  padding: 10px;
+  padding: 20px;
   cursor: pointer;
   user-select: none;
 `

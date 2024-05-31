@@ -1,42 +1,126 @@
 {
   "qualityMetrics": {
-    "qualityCell": [
-      {
-        "metrics": "Estimated number of cells",
+    "qualityCells": {
+      "estimatedNumberOfCells": {
+        "name": "Estimated Number of Cells",
         "definition": "The number of barcodes associated with at least one cell",
         "expectedValue": "500-10000",
-        "notes": "Higher or lower than expected values may indicate inaccurate cell count, cell lysis, or failures during GEM generation."
+        "notes": "Higher or lower than expected values may indicate inaccurate cell count, cell lysis, or failures during GEM generation.",
+        "min": 500
       },
-      {
-        "metrics": "Median reads per cell",
+      "meanReadsPerCell": {
+        "name": "Mean Reads per Cell",
         "definition": "The total number of sequenced reads divided by the number of barcodes associated with cell-containing partitions",
         "expectedValue": "User defined; 20,000 reads/cell minimum recommended",
         "notes": "The necessary sequencing depth per cell depends on the cell type (high or low RNA) and the desired analysis."
       },
-      {
-        "metrics": "Median UMI counts per cell",
+      "medianUmiCountsPerCell": {
+        "name": "Median UMI Counts per Cell",
         "definition": "",
         "expectedValue": "",
         "notes": ""
       },
-      {
-        "metrics": "Total genes detected",
+      "totalGenesDetected": {
+        "name": "Total Genes Detected",
         "definition": "",
         "expectedValue": "",
         "notes": ""
       },
-      {
-        "metrics": "Median genes per cell",
+      "medianGenesPerCell": {
+        "name": "Median Genes per Cell",
         "definition": "",
         "expectedValue": "",
         "notes": ""
       },
-      {
-        "metrics": "Fraction reads in cells",
+      "fractionReadsInCells": {
+        "name": "Fraction Reads in Cells",
         "definition": "",
         "expectedValue": ">70%",
-        "notes": ""
+        "notes": "",
+        "min": 70
       }
-    ]
+    },
+    "qualitySequencing": {
+      "numberOfReads": {
+        "name": "Number of Reads",
+        "definition": "The total number of reads in the sequencing run",
+        "expectedValue": "User defined",
+        "notes": "This is the total number of reads in the sequencing run"
+      },
+      "validBarcodes": {
+        "name": "Valid Barcodes",
+        "definition": "The number of barcodes that passed the initial barcode filtering",
+        "expectedValue": "User defined",
+        "notes": "This is the number of barcodes that passed the initial barcode filtering"
+      },
+      "sequencingSaturation": {
+        "name": "Sequencing Saturation",
+        "definition": "The fraction of reads that map to valid barcodes",
+        "expectedValue": "User defined",
+        "notes": "This is the fraction of reads that map to valid barcodes"
+      },
+      "q30BasesInBarcodes": {
+        "name": "Q30 Bases in Barcodes",
+        "definition": "The fraction of bases in the barcodes that have a quality score of at least 30",
+        "expectedValue": "User defined",
+        "notes": "This is the fraction of bases in the barcodes that have a quality score of at least 30"
+      },
+      "q30BasesInRnaRead": {
+        "name": "Q30 Bases in RNA Read",
+        "definition": "The fraction of bases in the RNA reads that have a quality score of at least 30",
+        "expectedValue": "User defined",
+        "notes": "This is the fraction of bases in the RNA reads that have a quality score of at least 30"
+      },
+      "q30BasesInUmi": {
+        "name": "Q30 Bases in UMI",
+        "definition": "The fraction of bases in the UMI that have a quality score of at least 30",
+        "expectedValue": "User defined",
+        "notes": "This is the fraction of bases in the UMI that have a quality score of at least 30"
+      }
+    },
+    "qualityMapping": {
+      "readsMappedToGenome": {
+        "name": "Reads Mapped to Genome",
+        "definition": "The number of reads that map to the genome",
+        "expectedValue": "User defined",
+        "notes": "This is the number of reads that map to the genome"
+      },
+      "readsMappedConfidentlyToGenome": {
+        "name": "Reads Mapped Confidently to Genome",
+        "definition": "The number of reads that map to the genome with high mapping quality",
+        "expectedValue": "User defined",
+        "notes": "This is the number of reads that map to the genome with high mapping quality"
+      },
+      "readsMappedConfidentlyToIntergenicRegions": {
+        "name": "Reads Mapped Confidently to Intergenic Regions",
+        "definition": "The number of reads that map to intergenic regions with high mapping quality",
+        "expectedValue": "User defined",
+        "notes": "This is the number of reads that map to intergenic regions with high mapping quality"
+      },
+      "readsMappedConfidentlyToIntronicRegions": {
+        "name": "Reads Mapped Confidently to Intronic Regions",
+        "definition": "The number of reads that map to intronic regions with high mapping quality",
+        "expectedValue": "User defined",
+        "notes": "This is the number of reads that map to intronic regions with high mapping quality"
+      },
+      "readsMappedConfidentlyToExonicRegions": {
+        "name": "Reads Mapped Confidently to Exonic Regions",
+        "definition": "The number of reads that map to exonic regions with high mapping quality",
+        "expectedValue": "User defined",
+        "notes": "This is the number of reads that map to exonic regions with high mapping quality"
+      },
+      "readsMappedConfidentlyToTranscriptome": {
+        "name": "Reads Mapped Confidently to Transcriptome",
+        "definition": "The number of reads that map to the transcriptome with high mapping quality",
+        "expectedValue": "User defined",
+        "notes": "This is the number of reads that map to the transcriptome with high mapping quality"
+      },
+      "readsMappedAntisenseToGene": {
+        "name": "Reads Mapped Antisense to Gene",
+        "definition": "The number of reads that map to the opposite strand of a gene",
+        "expectedValue": "User defined",
+        "notes": "This is the number of reads that map to the opposite strand of a gene"
+      }
+    }
   }
 }
