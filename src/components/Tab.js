@@ -110,6 +110,9 @@ const Tab = ({ activeTab, handleTabClick }) => {
             <SubTabItem onClick={() => handleTabClick('QualityMapping')}>QUALITY OF MAPPING</SubTabItem>
           </SubTabList>
         </TabWrapper>
+        <TabItem $isActive={activeTab == 'QualityControl'} onClick={() => handleTabClick('QualityControl')}>
+          QUALITY CONTROL
+        </TabItem>
         <TabWrapper>
           <TabItem
             $isActive={['Clustering', 'Annotation', 'Deg', 'Gsea'].includes(activeTab)}

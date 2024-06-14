@@ -7,9 +7,7 @@ import styled from 'styled-components'
 
 const AppContainer = styled.div``
 
-const Content = styled.div`
-  margin-top: 20px;
-`
+const Content = styled.div``
 
 function App() {
   const [activeTab, setActiveTab] = useState('Home')
@@ -27,6 +25,7 @@ function App() {
         {activeTab == 'QualityCells' && <Pages.QualityCells />}
         {activeTab == 'QualitySequencing' && <Pages.QualitySequencing />}
         {activeTab == 'QualityMapping' && <Pages.QualityMapping />}
+        {activeTab == 'QualityControl' && <Pages.QualityControl />}
         {activeTab == 'Annotation' && <Pages.Annotation />}
         {activeTab == 'Clustering' && <Pages.Clustering />}
         {activeTab == 'Deg' && <Pages.Deg />}

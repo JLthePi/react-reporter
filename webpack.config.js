@@ -49,6 +49,15 @@ module.exports = {
         use: ['json-loader'],
         type: 'javascript/auto',
       },
+      {
+        test: /\.csv$/,
+        loader: 'csv-loader',
+        options: {
+          dynamicTyping: true,
+          header: true,
+          skipEmptyLines: true,
+        },
+      },
     ],
   },
   plugins: [

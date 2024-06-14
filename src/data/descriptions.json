@@ -3,6 +3,7 @@
     "qualityCells": {
       "estimatedNumberOfCells": {
         "name": "Estimated Number of Cells",
+        "type": "count",
         "definition": "The number of barcodes associated with at least one cell",
         "expectedValue": "500-10000",
         "notes": "Higher or lower than expected values may indicate inaccurate cell count, cell lysis, or failures during GEM generation.",
@@ -10,30 +11,35 @@
       },
       "meanReadsPerCell": {
         "name": "Mean Reads per Cell",
+        "type": "count",
         "definition": "The total number of sequenced reads divided by the number of barcodes associated with cell-containing partitions",
         "expectedValue": "User defined; 20,000 reads/cell minimum recommended",
         "notes": "The necessary sequencing depth per cell depends on the cell type (high or low RNA) and the desired analysis."
       },
       "medianUmiCountsPerCell": {
         "name": "Median UMI Counts per Cell",
+        "type": "count",
         "definition": "",
         "expectedValue": "",
         "notes": ""
       },
       "totalGenesDetected": {
         "name": "Total Genes Detected",
+        "type": "count",
         "definition": "",
         "expectedValue": "",
         "notes": ""
       },
       "medianGenesPerCell": {
         "name": "Median Genes per Cell",
+        "type": "count",
         "definition": "",
         "expectedValue": "",
         "notes": ""
       },
       "fractionReadsInCells": {
         "name": "Fraction Reads in Cells",
+        "type": "percent",
         "definition": "",
         "expectedValue": ">70%",
         "notes": "",
@@ -43,6 +49,7 @@
     "qualitySequencing": {
       "numberOfReads": {
         "name": "Number of Reads",
+        "type": "count",
         "definition": "The total number of reads in the sequencing run",
         "expectedValue": "User defined",
         "notes": "This is the total number of reads in the sequencing run"
@@ -55,24 +62,28 @@
       },
       "sequencingSaturation": {
         "name": "Sequencing Saturation",
+        "type": "percent",
         "definition": "The fraction of reads that map to valid barcodes",
         "expectedValue": "User defined",
         "notes": "This is the fraction of reads that map to valid barcodes"
       },
       "q30BasesInBarcodes": {
         "name": "Q30 Bases in Barcodes",
+        "type": "percent",
         "definition": "The fraction of bases in the barcodes that have a quality score of at least 30",
         "expectedValue": "User defined",
         "notes": "This is the fraction of bases in the barcodes that have a quality score of at least 30"
       },
       "q30BasesInRnaRead": {
         "name": "Q30 Bases in RNA Read",
+        "type": "percent",
         "definition": "The fraction of bases in the RNA reads that have a quality score of at least 30",
         "expectedValue": "User defined",
         "notes": "This is the fraction of bases in the RNA reads that have a quality score of at least 30"
       },
       "q30BasesInUmi": {
         "name": "Q30 Bases in UMI",
+        "type": "percent",
         "definition": "The fraction of bases in the UMI that have a quality score of at least 30",
         "expectedValue": "User defined",
         "notes": "This is the fraction of bases in the UMI that have a quality score of at least 30"
@@ -81,42 +92,49 @@
     "qualityMapping": {
       "readsMappedToGenome": {
         "name": "Reads Mapped to Genome",
+        "type": "percent",
         "definition": "The number of reads that map to the genome",
         "expectedValue": "User defined",
         "notes": "This is the number of reads that map to the genome"
       },
       "readsMappedConfidentlyToGenome": {
         "name": "Reads Mapped Confidently to Genome",
+        "type": "percent",
         "definition": "The number of reads that map to the genome with high mapping quality",
         "expectedValue": "User defined",
         "notes": "This is the number of reads that map to the genome with high mapping quality"
       },
       "readsMappedConfidentlyToIntergenicRegions": {
         "name": "Reads Mapped Confidently to Intergenic Regions",
+        "type": "percent",
         "definition": "The number of reads that map to intergenic regions with high mapping quality",
         "expectedValue": "User defined",
         "notes": "This is the number of reads that map to intergenic regions with high mapping quality"
       },
       "readsMappedConfidentlyToIntronicRegions": {
         "name": "Reads Mapped Confidently to Intronic Regions",
+        "type": "percent",
         "definition": "The number of reads that map to intronic regions with high mapping quality",
         "expectedValue": "User defined",
         "notes": "This is the number of reads that map to intronic regions with high mapping quality"
       },
       "readsMappedConfidentlyToExonicRegions": {
         "name": "Reads Mapped Confidently to Exonic Regions",
+        "type": "percent",
         "definition": "The number of reads that map to exonic regions with high mapping quality",
         "expectedValue": "User defined",
         "notes": "This is the number of reads that map to exonic regions with high mapping quality"
       },
       "readsMappedConfidentlyToTranscriptome": {
         "name": "Reads Mapped Confidently to Transcriptome",
+        "type": "percent",
         "definition": "The number of reads that map to the transcriptome with high mapping quality",
         "expectedValue": "User defined",
         "notes": "This is the number of reads that map to the transcriptome with high mapping quality"
       },
       "readsMappedAntisenseToGene": {
         "name": "Reads Mapped Antisense to Gene",
+        "type": "percent",
         "definition": "The number of reads that map to the opposite strand of a gene",
         "expectedValue": "User defined",
         "notes": "This is the number of reads that map to the opposite strand of a gene"

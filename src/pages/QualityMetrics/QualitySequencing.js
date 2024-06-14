@@ -89,11 +89,13 @@ const QualitySequencing = () => {
   const [category, setCategory] = useState(categories[0])
   const [thresholdMin, setThresholdMin] = useState(qualityMetrics.qualitySequencing[category]?.min || 0)
   const [thresholdMax, setThresholdMax] = useState(qualityMetrics.qualitySequencing[category]?.max || Infinity)
+  const [type, setType] = useState(qualityMetrics.qualitySequencing[category]?.type || 'count')
 
   const chooseCategory = cat => {
     setCategory(cat)
     setThresholdMin(qualityMetrics.qualitySequencing[cat]?.min || 0)
     setThresholdMax(qualityMetrics.qualitySequencing[cat]?.max || Infinity)
+    setType(qualityMetrics.qualitySequencing[cat]?.type || 'count')
   }
 
   useEffect(() => {
@@ -126,6 +128,7 @@ const QualitySequencing = () => {
           margins={{ top: 0, right: 50, bottom: 50, left: 100 }}
           xaxis={category}
           yaxis={'customerId'}
+          type={type}
           thresholdMin={thresholdMin}
           thresholdMax={thresholdMax}
         />
